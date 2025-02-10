@@ -18,10 +18,10 @@ jobs:
           curl -fsSL https://rpm.nodesource.com/setup_22.x -o- | bash
           yum install -y nodejs
           node -v
-      - name: Install puppeteer test
+      - name: Install and run puppeteer
         run: |
           npm init -y
           npm install puppeteer
           npx puppeteer install firefox
           ls
-          node -e "require('puppeteer').launch().then(browser => browser.newPage().then(page => page.goto('https://example.com').then(() => browser.close())))"
+          node -e "require('puppeteer').launch({ browser: 'firefox' }).then(browser => browser.newPage().then(page => page.goto('https://example.com').then(() => browser.close())))"
