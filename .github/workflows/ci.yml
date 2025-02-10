@@ -30,6 +30,8 @@ jobs:
           npx puppeteer browsers install firefox
           ls
           node -e "require('puppeteer').launch({ browser: 'firefox' }).then(browser => browser.newPage().then(page => page.goto('https://example.com').then(() => browser.close())))"
+        env:
+          HOME: /root
       - name: Extract lib files
         run: |
           ldconfig -p | grep libgtk-3.so.0
