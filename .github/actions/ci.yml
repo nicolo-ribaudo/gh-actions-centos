@@ -1,0 +1,14 @@
+name: CI
+on:
+  push:
+    branches: [ main ]
+jobs:
+  container-test-job:
+    runs-on: ubuntu-latest
+    container:
+      image: redhat/ubi9:latest
+      volumes:
+        - volume:/volume_mount
+    steps:
+      - name: Install Node.js
+        run: yum install nodejs npm
