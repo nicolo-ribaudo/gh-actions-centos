@@ -9,9 +9,15 @@ jobs:
       image: redhat/ubi9:latest
       volumes:
         - volume:/volume_mount
+        - project:/project
     steps:
       - name: Install Node.js
         run: |
           curl -fsSL https://rpm.nodesource.com/setup_22.x -o- | bash
           yum install -y nodejs
           node -v
+      - name: Run puppeteer test
+        run: |
+          npm ci
+          node ./script.js
+        working-directory: /project
