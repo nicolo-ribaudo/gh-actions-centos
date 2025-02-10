@@ -16,6 +16,7 @@ jobs:
           curl -fsSL https://rpm.nodesource.com/setup_22.x -o- | bash
           yum install -y nodejs
           node -v
+      - uses: actions/checkout@master
       - name: Run puppeteer test
         run: |
           cd /project
