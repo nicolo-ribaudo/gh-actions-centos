@@ -18,6 +18,9 @@ jobs:
           curl -fsSL https://rpm.nodesource.com/setup_22.x -o- | bash
           yum install -y nodejs xz
           node -v
+      - name: Install Firefox dependencies
+        run: |
+          yum install -y gtk3
       - name: Install and run puppeteer
         run: |
           npm init -y
