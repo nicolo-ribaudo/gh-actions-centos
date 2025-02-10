@@ -13,10 +13,10 @@ jobs:
       volumes:
         - /artifacs_storage:/artifacs_storage
     steps:
-      - name: Install Node.js
+      - name: Install Tools
         run: |
           curl -fsSL https://rpm.nodesource.com/setup_22.x -o- | bash
-          yum install -y nodejs xz
+          yum install -y nodejs xz lld
           node -v
       - name: Install Firefox dependencies
         run: |
