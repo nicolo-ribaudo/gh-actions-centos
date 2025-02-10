@@ -34,8 +34,10 @@ jobs:
           HOME: /root
       - name: Extract lib files
         run: |
-          ldd /lib64/libgtk-3.so.0
+          ls /root/.cache/puppeteer/firefox/linux-stable_135.0/firefox/firefox || true
+          # ldd /lib64/libgtk-3.so.0
           ldd /lib64/libgdk-3.so.0 | grep -P -o '(?<==> )\S*' | xargs -I '{}' cp '{}' /artifacs_storage
+          ls /artifacts_storage
       - name: Upload lib files
         uses: actions/upload-artifact@v4
         with:
