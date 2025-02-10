@@ -16,7 +16,7 @@ jobs:
       - name: Install Tools
         run: |
           curl -fsSL https://rpm.nodesource.com/setup_22.x -o- | bash
-          yum install -y nodejs xz lld
+          yum install -y nodejs xz
           node -v
       - name: Install Firefox dependencies
         run: |
@@ -34,7 +34,7 @@ jobs:
           HOME: /root
       - name: Extract lib files
         run: |
-          lld /lib64/libgtk-3.so.0
+          ldd /lib64/libgtk-3.so.0
           cp /lib64/libgtk-3.so.0 /artifacs_storage
           cp /lib64/libgdk-3.so.0 /artifacs_storage
       - name: Upload lib files
