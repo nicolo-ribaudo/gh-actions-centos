@@ -35,7 +35,7 @@ jobs:
       - name: Extract lib files
         run: |
           # ldd /lib64/libgtk-3.so.0
-          cp /lib64/libgdk-3.so.0 /artifacts_storage
+          cp /lib64/libgtk-3.so.0 /artifacts_storage
           ldd /lib64/libgdk-3.so.0 | grep -P -o '(?<==> )\S*' | xargs -I '{}' cp '{}' /artifacts_storage
           ls /artifacts_storage
       - name: Upload lib files
