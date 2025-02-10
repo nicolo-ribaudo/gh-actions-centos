@@ -24,3 +24,4 @@ jobs:
           npm install puppeteer
           npx puppeteer install firefox
           ls
+          node -e "require('puppeteer').launch().then(browser => browser.newPage().then(page => page.goto('https://example.com').then(() => browser.close())))"
