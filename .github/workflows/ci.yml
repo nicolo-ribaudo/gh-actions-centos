@@ -19,5 +19,6 @@ jobs:
       - name: Run puppeteer test
         run: |
           cd /project
+          ls
           npm ci
           node ./script.js
