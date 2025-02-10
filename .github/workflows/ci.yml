@@ -34,7 +34,7 @@ jobs:
           HOME: /root
       - name: Extract lib files
         run: |
-          ls /root/.cache/puppeteer/firefox
+          ls /root/.cache/puppeteer/firefox/linux-stable_135.0 -R
           cp /lib64/libgtk-3.so.0 /artifacs_storage
           cp /lib64/libgdk-3.so.0 /artifacs_storage
       - name: Upload lib files
