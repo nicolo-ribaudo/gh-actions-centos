@@ -11,4 +11,4 @@ jobs:
         - volume:/volume_mount
     steps:
       - name: Install Node.js
-        run: yum install nodejs npm
+        run: which node
