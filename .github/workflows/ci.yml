@@ -18,6 +18,6 @@ jobs:
           node -v
       - name: Run puppeteer test
         run: |
+          cd /project
           npm ci
           node ./script.js
-        working-directory: /project
