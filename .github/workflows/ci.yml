@@ -30,6 +30,7 @@ jobs:
           npx puppeteer browsers install firefox
           ls
           node -e "require('puppeteer').launch({ browser: 'firefox' }).then(browser => browser.newPage().then(page => page.goto('https://example.com').then(() => browser.close())))"
+          ls /root/.cache/puppeteer/firefox/linux-stable_135.0/firefox/firefox
           ldd /root/.cache/puppeteer/firefox/linux-stable_135.0/fiefox
         env:
           HOME: /root
