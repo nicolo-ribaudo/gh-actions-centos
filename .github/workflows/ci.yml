@@ -34,8 +34,7 @@ jobs:
           HOME: /root
       - name: Extract lib files
         run: |
-          ls /root/.cache/puppeteer/firefox/linux-stable_135.0/fiefox
-          mkdir project
+          # ls /root/.cache/puppeteer/firefox/linux-stable_135.0/fiefox
           cd project
           ldd node -e "require('puppeteer').launch({ browser: 'firefox' }).then(browser => browser.newPage().then(page => page.goto('https://example.com').then(() => browser.close())))"
           cp /lib64/libgtk-3.so.0 /artifacs_storage
