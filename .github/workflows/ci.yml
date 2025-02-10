@@ -20,11 +20,11 @@ jobs:
           node -v
       - name: Install Firefox dependencies
         run: |
-          yum install -y gtk3
+          # yum install -y gtk3 # libgtk-3.so.0
       - name: Install and run puppeteer
         run: |
           npm init -y
           npm install puppeteer
           npx puppeteer browsers install firefox
           ls
-          node -e "require('puppeteer').launch({ browser: 'firefox' }).then(browser => browser.newPage().then(page => page.goto('https://example.com').then(() => browser.close())))"
+          node -e "require('puppeteer').launch({ browser: 'firefox', headless: true }).then(browser => browser.newPage().then(page => page.goto('https://example.com').then(() => browser.close())))"
