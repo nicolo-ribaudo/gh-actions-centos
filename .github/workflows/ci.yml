@@ -12,16 +12,15 @@ jobs:
       image: redhat/ubi9:latest
       volumes:
         - volume:/volume_mount
-        - project:/project
     steps:
       - name: Install Node.js
         run: |
           curl -fsSL https://rpm.nodesource.com/setup_22.x -o- | bash
           yum install -y nodejs
           node -v
-      - uses: actions/checkout@master
-      - name: Run puppeteer test
+      - name: Install puppeteer test
         run: |
-          cd /project
+          npm init -y
+          npm install puppeteer
+          npx puppeteer install firefox
           ls
-          npm ci
