@@ -11,7 +11,7 @@ jobs:
         - volume:/volume_mount
     steps:
       - name: Install Node.js
-        run: >
+        run: |
           curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
           nvm install 22
           node -v
