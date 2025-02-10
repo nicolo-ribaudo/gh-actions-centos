@@ -12,7 +12,6 @@ jobs:
     steps:
       - name: Install Node.js
         run: |
-          curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
-          nvm install 22
+          curl -fsSL https://rpm.nodesource.com/setup_22.x -o- | bash
+          yum install -y nodejs
           node -v
-          npm -v
