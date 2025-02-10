@@ -20,4 +20,4 @@ jobs:
       - name: Run puppeteer test
         run: |
           cd /project
-          ls /
+          ls
