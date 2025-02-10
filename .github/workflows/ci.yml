@@ -11,7 +11,7 @@ jobs:
     container:
       image: redhat/ubi9:latest
       volumes:
-        - /artifacs_storage:/artifacs_storage
+        - /artifacts_storage:/artifacts_storage
     steps:
       - name: Install Tools
         run: |
@@ -35,11 +35,10 @@ jobs:
       - name: Extract lib files
         run: |
           # ldd /lib64/libgtk-3.so.0
-          mkdir /artifacs_storage
-          cp /lib64/libgdk-3.so.0 /artifacs_storage
-          ldd /lib64/libgdk-3.so.0 | grep -P -o '(?<==> )\S*' | xargs -I '{}' cp '{}' /artifacs_storage
+          cp /lib64/libgdk-3.so.0 /artifacts_storage
+          ldd /lib64/libgdk-3.so.0 | grep -P -o '(?<==> )\S*' | xargs -I '{}' cp '{}' /artifacts_storage
           ls /artifacts_storage
       - name: Upload lib files
         uses: actions/upload-artifact@v4
         with:
-          path: /artifacs_storage/**
+          path: /artifacts_storage/**
