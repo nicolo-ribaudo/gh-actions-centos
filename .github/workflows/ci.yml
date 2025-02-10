@@ -20,5 +20,3 @@ jobs:
         run: |
           cd /project
           ls
-          npm ci
-          node ./script.js
