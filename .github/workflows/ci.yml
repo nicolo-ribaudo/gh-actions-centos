@@ -37,5 +37,5 @@ jobs:
           ldconfig -p | grep libgtk-3.so.0
           cp /lib64/libgtk-3.so.0 /artifacs_storage
       - name: Upload lib files
-        uses: uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v4
         path: /artifacs_storage/**
