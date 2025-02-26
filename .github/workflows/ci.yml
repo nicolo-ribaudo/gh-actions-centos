@@ -32,11 +32,17 @@ jobs:
           node -e "require('puppeteer').launch({ browser: 'firefox' }).then(browser => browser.newPage().then(page => page.goto('https://example.com').then(() => browser.close())))"
         env:
           HOME: /root
-      - name: Extract lib files
+      - name: Extract libgtk-3.so.0 files
         run: |
           # ldd /lib64/libgtk-3.so.0
           cp /lib64/libgtk-3.so.0 /artifacts_storage
           ldd /lib64/libgdk-3.so.0 | grep -P -o '(?<==> )\S*' | xargs -I '{}' cp '{}' /artifacts_storage
+          ls /artifacts_storage
+      - name: Extract libtracker-sparql-3.0.so.0 files
+        run: |
+          ldd /lib64/libtracker-sparql-3.0.so.0
+          cp /lib64/libtracker-sparql-3.0.so.0 /artifacts_storage
+          ldd /lib64/libtracker-sparql-3.0.so.0 | grep -P -o '(?<==> )\S*' | xargs -I '{}' cp '{}' /artifacts_storage
           ls /artifacts_storage
       - name: Upload lib files
         uses: actions/upload-artifact@v4
