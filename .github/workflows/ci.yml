@@ -9,7 +9,7 @@ jobs:
   container-test-job:
     runs-on: ubuntu-latest
     container:
-      image: redhat/ubi9:latest
+      image: redhat/ubi8:latest
       volumes:
         - /artifacts_storage:/artifacts_storage
     steps:
