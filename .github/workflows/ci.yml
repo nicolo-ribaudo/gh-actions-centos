@@ -21,6 +21,7 @@ jobs:
       - name: Install Firefox dependencies
         run: |
           yum install -y gtk3 # libgtk-3.so.0
+          yum install -y libasound2 # libasound.so.2
       - name: Install and run puppeteer
         run: |
           mkdir project
